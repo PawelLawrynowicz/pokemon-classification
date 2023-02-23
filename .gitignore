@@ -2,3 +2,4 @@ res
 PokemonData
 *.h5
 PokemonData.zip
+.ipynb_checkpoints
