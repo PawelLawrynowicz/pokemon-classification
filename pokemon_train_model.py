@@ -193,7 +193,7 @@ model.compile(optimizer='adam', loss='categorical_crossentropy',
 
 # %%
 # Train
-epochs = 10
+epochs = 15
 hist = model.fit(train_generator, epochs=epochs, validation_data=val_generator)
 
 # %%
@@ -230,13 +230,13 @@ def create_graphs(history, epochs, name):
 
 # %%
 # Save history and model and evaluation
-with open('history.pkl', 'wb') as f:
+with open(f'history_{epochs}_epochs.pkl', 'wb') as f:
     pickle.dump(hist.history, f)
 
-model.save('resnet50_model.h5')
-create_graphs(hist, epochs, 'resnet50_model')
+model.save(f'resnet50_model_{epochs}_epochs.h5')
+create_graphs(hist, epochs, f'resnet50_model_{epochs}_epochs')
 
 test_loss, test_accuracy = model.evaluate(val_generator)
-with open('evaluation_results.txt', 'w') as f:
+with open(f'evaluation_results_{epochs}_epochs.txt', 'w') as f:
     f.write(f'Test Loss: {test_loss:.4f}\n')
     f.write(f'Test Accuracy: {test_accuracy:.4f}')
