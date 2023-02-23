@@ -1,1 +1,3 @@
-./types.txt
+res
+PokemonData
+resnet50_model_10_epochs.h5
